@@ -12,6 +12,15 @@ var socket = io();
 
 
 
+chat_inp.addEventListener("mouseenter",()=>{
+    if(chat_inp.value != ''){
+        chat_inp.disabled = true;
+    };
+})
+   
+
+
+
 
 function updateTime(){
     const dateEle = document.getElementById("curr-time");
