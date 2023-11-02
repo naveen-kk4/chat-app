@@ -12,16 +12,6 @@ var socket = io();
 
 
 
-chat_inp.addEventListener("mouseenter",()=>{
-    if(chat_inp.value != ''){
-        chat_inp.disabled = true;
-    };
-})
-   
-
-
-
-
 function updateTime(){
     const dateEle = document.getElementById("curr-time");
     if(dateEle!=null){
@@ -92,7 +82,7 @@ function renderMessage(data,className){
     if(className==="sent")msgDiv.innerHTML=`me:${data.message}`;
     else msgDiv.innerHTML=`${data.username}:${data.message}`;
     chat_display.appendChild(msgDiv);
-    chat_inp.value="";
+    if(socket.id===data.id)chat_inp.value="";
     chat_display.scrollTop = chat_display.scrollHeight;
 
 
